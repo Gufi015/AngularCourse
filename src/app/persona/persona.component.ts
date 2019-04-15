@@ -9,11 +9,14 @@ import { Persona } from '../persona.model';
 export class PersonaComponent implements OnInit {
 
   @Input() persona:Persona;
-  @Input() i: number;
+  @Input() indice: number;
 
   constructor() { }
 
   ngOnInit() {
   }
+
+
+
 
 }

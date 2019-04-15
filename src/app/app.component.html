@@ -1,14 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
   <h1 class="jumbotron">
-    Welcome to {{ title }}!
+    {{ title }}
   </h1>
   <hr>
-  <app-formulario></app-formulario>
+  <app-formulario
+  (personaCreada)="onPersonaAgregada($event)";
+  ></app-formulario>
   <hr>
   <app-persona
   *ngFor="let personaElemento of personas; let i = index"
   [persona]="personaElemento"
-  [i]="i"
+  [indice]="i"
   ></app-persona>
 </div>
