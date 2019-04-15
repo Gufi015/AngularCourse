@@ -1,4 +1,5 @@
 import { Persona } from "./persona.model";
+import { LogginService } from './LogginService.service';
 
 export class PersonaService {
   personas: Persona[] = [
@@ -8,7 +9,12 @@ export class PersonaService {
     new Persona("Luis", "Rofriguez")
   ];
 
+
+  constructor(private logginService: LogginService){}
+
   agregarPersona(persona: Persona) {
+
+    this.logginService.RecibirMensaje("SE AGREGO LA PERSONA " + JSON.stringify(persona));
     this.personas.push(persona);
   }
 }

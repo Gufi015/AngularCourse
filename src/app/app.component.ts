@@ -21,8 +21,8 @@ export class AppComponent implements OnInit {
     this.personas = this.personasService.personas;
   }
 
-  onPersonaAgregada(persona: Persona) {
-    //this.personas.push(persona);
-    this.personasService.agregarPersona(persona);
-  }
+  // onPersonaAgregada(persona: Persona) {
+  //   //this.personas.push(persona);
+  //   this.personasService.agregarPersona(persona);
+  // }
 }
