@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-html {
+
+/* body {
+background-color: transparent;
+} */
+
+body {
   background-color: #2196F3;
   min-height: 1000px;
   font-family: 'helvetica neue';
