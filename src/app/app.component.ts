@@ -10,7 +10,7 @@ import { LogginService } from './LogginService.service';
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit {
-  title = "lista de personas";
+  title = "Lista de Personas";
 
   personas: Persona[] = [];
 

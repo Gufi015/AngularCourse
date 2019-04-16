@@ -9,9 +9,9 @@ export class PersonaService {
   personas: Persona[] = [
     new Persona("Rufino", "Rojas"),
     new Persona("Rosa", "Aguilar"),
-    new Persona("Jose", "Santos"),
-    new Persona("Luis", "Rodriguez"),
-    new Persona("Maria", "Velez")
+    new Persona("Gary", "Aguilar Rojas"),
+    new Persona("Floripondio", "Rojas Aguilar"),
+    new Persona("Jaguar", "Aguilar Rojas")
   ];
 
   saludar = new EventEmitter<number>();

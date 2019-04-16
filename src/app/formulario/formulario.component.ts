@@ -36,5 +36,6 @@ export class FormularioComponent {
     //this.logginService.RecibirMensaje("SE ENVIO PERSONA " +  JSON.stringify(persona));
     //this.personaCreada.emit(persona);
     this.personaService.agregarPersona(persona);
+
   }
 }
