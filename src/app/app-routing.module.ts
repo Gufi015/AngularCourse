@@ -4,6 +4,7 @@ import { PersonasComponent } from "./personas/personas.component";
 import { FormularioComponent } from "./personas/formulario/formulario.component";
 import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
+import { LoginGuardian } from './login/loginGuardian.service';
 
 const routes: Routes = [
   { path: "", component: PersonasComponent },

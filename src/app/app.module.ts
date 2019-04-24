@@ -14,6 +14,7 @@ import { DataServices } from './data.services';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
+import { LoginGuardian } from './login/loginGuardian.service';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { LoginService } from './login/login.service';
     PersonaService,
     LogginService,
     DataServices,
-    LoginService
+    LoginService,
   ],
   bootstrap: [AppComponent]
 })

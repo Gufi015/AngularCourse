@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
-import * as firebase from "firebase";
 import { Router } from '@angular/router';
+import * as firebase from "firebase";
+import "firebase/auth";
+import "firebase/firestore";
 
 @Injectable()
 export class LoginService {
@@ -43,7 +45,7 @@ export class LoginService {
   logout(){
     firebase.auth().signOut().then( () =>{
       this.token = null;
-      this.router.navigate(["/login"]);
+      this.router.navigate(['/login']);
     }).catch(
       error => console.log('error de logout' + error)
     );
