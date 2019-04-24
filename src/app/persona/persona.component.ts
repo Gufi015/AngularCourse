@@ -15,5 +15,9 @@ export class PersonaComponent {
 
   emitirSaludo() {
     this.personasService.saludar.emit(this.indice);
+    console.log('emitir saludo');
+    console.log("emitir saludo");
   }
 }
+
+
