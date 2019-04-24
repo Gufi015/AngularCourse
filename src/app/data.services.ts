@@ -2,18 +2,19 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Persona } from "./persona.model";
 import { Console } from "@angular/core/src/console";
-import { LoginService } from './login/login.service';
+import { LoginService } from "./login/login.service";
 
 @Injectable()
 export class DataServices {
-  constructor(private httpClient: HttpClient,
-    private loginService:LoginService) {}
+  constructor(
+    private httpClient: HttpClient,
+    private loginService: LoginService
+  ) {}
 
   cargarPersonas() {
-
     const token = this.loginService.getIdToken();
     return this.httpClient.get(
-      "https://listado-personas-19d44.firebaseio.com/datos.json?auth="+token
+      "https://listado-personas-19d44.firebaseio.com/datos.json?auth=" + token
     );
 
     // .subscribe(
@@ -23,8 +24,13 @@ export class DataServices {
   }
 
   guardarPersonas(personas: Persona[]) {
+    const token = this.loginService.getIdToken();
     this.httpClient
-      .put("https://listado-personas-19d44.firebaseio.com/datos.json", personas)
+      .put(
+        "https://listado-personas-19d44.firebaseio.com/datos.json?auth=" +
+          token,
+        personas
+      )
       .subscribe(
         response =>
           console.log("respuesta del servicio" + JSON.stringify(response)),
@@ -33,10 +39,14 @@ export class DataServices {
   }
 
   modificarPersona(index: number, persona: Persona) {
+    const token = this.loginService.getIdToken();
     let url: string;
 
     url =
-      "https://listado-personas-19d44.firebaseio.com/datos/" + index + ".json";
+      "https://listado-personas-19d44.firebaseio.com/datos/" +
+      index +
+      ".json?auth=" +
+      token;
 
     this.httpClient
       .put(url, persona)
@@ -48,13 +58,22 @@ export class DataServices {
   }
 
   eliminarPersona(index: number) {
+    const token = this.loginService.getIdToken();
     let url: string;
     url =
-      "https://listado-personas-19d44.firebaseio.com/datos/" + index + ".json";
+      "https://listado-personas-19d44.firebaseio.com/datos/" +
+      index +
+      ".json?auth=" +
+      token;
 
-    this.httpClient.delete(url).subscribe(
-      response => console.log('persona eliminada sussccess ' + JSON.stringify(response)),
-      error => console.log('error al eliminar la persona' + error)
-    );
+    this.httpClient
+      .delete(url)
+      .subscribe(
+        response =>
+          console.log(
+            "persona eliminada sussccess " + JSON.stringify(response)
+          ),
+        error => console.log("error al eliminar la persona" + error)
+      );
   }
 }
