@@ -15,11 +15,21 @@ export class PersonaService {
   ];
 
   saludar = new EventEmitter<number>();
-
   constructor(private logginService: LogginService){}
 
   agregarPersona(persona: Persona) {
     this.logginService.RecibirMensaje("SE AGREGO LA PERSONA " + JSON.stringify(persona));
     this.personas.push(persona);
+  }
+
+  encontrarPersona(index:number){
+    let persona: Persona = this.personas[index];
+    return persona;
+  }
+
+  modificarPersona(index:number, persona:Persona){
+    let persona1 = this.personas[index];
+    persona1.nombre = persona.nombre;
+    persona1.apellido = persona.apellido;
   }
 }
