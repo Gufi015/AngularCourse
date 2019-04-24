@@ -2,14 +2,18 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Persona } from "./persona.model";
 import { Console } from "@angular/core/src/console";
+import { LoginService } from './login/login.service';
 
 @Injectable()
 export class DataServices {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient,
+    private loginService:LoginService) {}
 
   cargarPersonas() {
+
+    const token = this.loginService.getIdToken();
     return this.httpClient.get(
-      "https://listado-personas-19d44.firebaseio.com/datos.json"
+      "https://listado-personas-19d44.firebaseio.com/datos.json?auth="+token
     );
 
     // .subscribe(
