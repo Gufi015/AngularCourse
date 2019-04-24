@@ -11,7 +11,6 @@ export class LoginService {
 
 
   constructor(private router: Router){
-
   }
 
   login(email: string, password: string) {
@@ -43,9 +42,9 @@ export class LoginService {
 
 
   logout(){
-    firebase.auth().signOut().then( () =>{
+    firebase.auth().signOut().then( () => {
       this.token = null;
-      this.router.navigate(['/login']);
+      this.router.navigate(['login']);
     }).catch(
       error => console.log('error de logout' + error)
     );
