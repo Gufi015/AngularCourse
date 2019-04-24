@@ -54,12 +54,22 @@ export class PersonaService {
 
   eliminarPersona(index:number){
     this.personas.splice(index,1);
+
+    //eliminar en el servicio
+    this.dataservices.eliminarPersona(index);
+
+
+    this.modificarPersonas();
   }
 
   obtenerPersonas(){
     return this.dataservices.cargarPersonas();
   }
 
-
+  modificarPersonas(){
+    if(this.personas != null){
+      this.dataservices.guardarPersonas(this.personas);
+    }
+  }
 
 }

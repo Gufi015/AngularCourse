@@ -42,4 +42,15 @@ export class DataServices {
         error => console.log("error del servicio" + error)
       );
   }
+
+  eliminarPersona(index: number) {
+    let url: string;
+    url =
+      "https://listado-personas-19d44.firebaseio.com/datos/" + index + ".json";
+
+    this.httpClient.delete(url).subscribe(
+      response => console.log('persona eliminada sussccess ' + JSON.stringify(response)),
+      error => console.log('error al eliminar la persona' + error)
+    );
+  }
 }
