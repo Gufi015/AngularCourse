@@ -1,0 +1,9 @@
+<div class="box">
+  <app-persona *ngFor="let personaElemento of personas; let i = index" [persona]="personaElemento" [indice]="i">
+  </app-persona>
+</div>
+
+<!-- <app-formulario (personaCreada)="onPersonaAgregada($event)"></app-formulario> -->
+<div class="box">
+  <app-formulario></app-formulario>
+</div>
