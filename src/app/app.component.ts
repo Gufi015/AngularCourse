@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import * as firebase from 'firebase';
+import { LoginService } from './login/login.service';
 
 @Component({
   selector: "app-root",
@@ -8,12 +9,23 @@ import * as firebase from 'firebase';
 })
 export class AppComponent implements OnInit {
   title = "Lista de Personas";
-  ngOnInit(): void {
 
+
+  constructor(private loginService:LoginService){
+
+  }
+  ngOnInit(): void {
     firebase.initializeApp({
       apiKey: "AIzaSyCtDgjTebeRcHDckYKWKdKm00V0FfEc570",
       authDomain: "listado-personas-19d44.firebaseapp.com"
     });
+  }
 
+  isAuth(){
+    return this.loginService.isAuth();
+  }
+
+  salir() {
+    this.loginService.logout();
   }
 }
