@@ -4,7 +4,6 @@ import { Injectable, EventEmitter } from '@angular/core';
 
 
 @Injectable()
-
 export class PersonaService {
   personas: Persona[] = [
     new Persona("Rufino", "Rojas"),
@@ -15,21 +14,27 @@ export class PersonaService {
   ];
 
   saludar = new EventEmitter<number>();
-  constructor(private logginService: LogginService){}
+  constructor(private logginService: LogginService) {}
 
   agregarPersona(persona: Persona) {
-    this.logginService.RecibirMensaje("SE AGREGO LA PERSONA " + JSON.stringify(persona));
+    this.logginService.RecibirMensaje(
+      "SE AGREGO LA PERSONA " + JSON.stringify(persona)
+    );
     this.personas.push(persona);
   }
 
-  encontrarPersona(index:number){
+  encontrarPersona(index: number) {
     let persona: Persona = this.personas[index];
     return persona;
   }
 
-  modificarPersona(index:number, persona:Persona){
+  modificarPersona(index: number, persona: Persona) {
     let persona1 = this.personas[index];
     persona1.nombre = persona.nombre;
     persona1.apellido = persona.apellido;
+  }
+
+  eliminarPersona(index:number){
+    this.personas.splice(index,1);
   }
 }
