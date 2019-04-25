@@ -7,12 +7,12 @@ import {
 import { LoginService } from "./login.service";
 import { Injectable } from "@angular/core";
 
-Injectable()
+@Injectable()
 export class LoginGuardian implements CanActivate {
-  private loginService: LoginService;
-  private router: Router;
+  // private loginService: LoginService;
+  // private router: Router;
 
-  //constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private loginService: LoginService, private router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (this.loginService.isAuth()) {
